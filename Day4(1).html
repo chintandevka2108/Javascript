@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day4</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="./Day4(1).js"></script>
+</head>
+<style>
+  .main h1
+  {
+    text-align: center;
+    align-items: center;
+    font-family: cursive;
+    color: rgb(36, 22, 228);
+  }
+  .main p
+  {
+    text-align: center;
+    margin-top: 3%;
+    font-size: larger;
+    font-family:cursive;
+    color: rgb(212, 8, 87);
+  }
+  .container
+  {
+        margin-top: 10%;
+        display: flex;
+        font-family:cursive;
+    }
+    .card-footer button  
+    {
+        background-color: rgb(127, 127, 236);
+        padding: 25px;
+        margin-left: 110px;
+        font-family:cursive;
+        font-size: larger;
+        color: aliceblue;
+        border: 1px solid #000;
+    }
+    .card-footer button:hover{
+        background-color: rgb(13, 228, 85);
+        border-radius: 20%;
+    
+    }
+      .card-img-top{
+      filter: blur(8px);
+      -webkit-filter: blur(8px);
+    }
+    .card-img-top:hover
+    {
+     filter:none;
+     -webkit-filter:none;
+     transform: scale(1.2);
+    }
+    .card-title
+    {
+        text-align: center;
+    }
+</style>
+<body>
+  <div class="main">
+    <h1>GROCERY MART</h1>
+    <p>This marts item are pure and healthy also certified by inspected make sure you serve good food for you healthy life.</p>
+  </div>
+    <div class="container" >
+        <div class="mainrow">
+    <div class="row row-cols-1 row-cols-md-3 g-4" >
+        <div class="col" >
+          <div class="card h-100">
+            <img src="https://assets.farmjournal.com/dims4/default/46fdd8c/2147483647/strip/false/crop/581x374+0+0/resize/581x374!/quality/90/?url=https%3A%2F%2Ffj-corp-pub.s3.us-east-2.amazonaws.com%2Fs3fs-public%2F2021-07%2FWheat.PNG" class="card-img-top" style="flood-opacity: 1.2;" alt="...">
+            <div class="card-body">
+              <h5 class="card-title" style="color: rgb(235, 146, 14);">Wheat</h5>
+              <p class="card-text">This is wheat its price 48 per kg. </p>
+            </div>
+            <div class="card-footer">
+                <button onclick="Wheat()">BUY</button>
+                <p style="margin-top: 5%;" id="demo"></p>
+
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="https://www.nextechagrisolutions.com/blog/wp-content/uploads/2014/11/Rice-Parts.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title" style="color: rgb(16, 128, 226);">Rice</h5>
+              <p class="card-text">This is rice its price 210 per kg and this rice type is jeeraser.</p>
+            </div>
+            <div class="card-footer">
+                <button onclick="Rice()">BUY</button>
+                <p style="margin-top: 5%;" id="demo1"></p>
+
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="https://www.shutterstock.com/image-photo/millets-bajra-crop-fields-farming-600nw-2349138427.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title" style="color: rgb(7, 104, 51);">Pearlmillet</h5>
+              <p class="card-text">This is a Pearl millet its price is 26 per kg.</p>
+            </div>
+            <div class="card-footer">
+                <button onclick="Pearlmillet()">BUY</button>
+                <p style="margin-top: 5%;" id="demo2"></p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+        </div>
+    </div>
+</body>
+</html>

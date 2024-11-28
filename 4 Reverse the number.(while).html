@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>count even number</title>
+</head>
+<body>
+    <h1>Count even numbers between 1 and 20 (using do...while)</h1>
+</body>
+</html>
+<script>
+    function countEvenNumbers() {
+    let count = 0;
+    let i = 2;
+    do {
+        if (i % 2 === 0) count++;
+        i++;
+    } while (i <= 80);
+    return count;
+}
+
+console.log(countEvenNumbers(20)); // Output: 10
+
+</script>

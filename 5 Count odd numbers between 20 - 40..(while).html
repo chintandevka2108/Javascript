@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>count odd number</title>
+</head>
+<body>
+    <h1>Count odd numbers between 20 and 40 (using while)</h1>
+</body>
+</html>
+<script>
+    function countOddNumbers() {
+    let count = 0;
+    let i = 0; // Start from 21 since 20 is even
+    while (i <= 40) {
+        if (i % 2 !== 0) count++;
+        i++;
+    }
+    return count;
+}
+
+console.log(countOddNumbers()); // Output: 10
+
+</script>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Person Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    #personForm {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+    #personForm label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    #personForm input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    #personForm button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    #personForm button:hover {
+      background-color: #0fdfa0;
+    }
+    .output {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #e7f3ff;
+      border: 1px solid #b3d4fc;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <form id="personForm">
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required>
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" placeholder="Enter your age" min="0" required>
+
+    <label for="eyeColor">Eye Color:</label>
+    <input type="text" id="eyeColor" name="eyeColor" placeholder="Enter your eye color">
+
+    <button type="button" onclick="createPerson()">Submit</button>
+  </form>
+  
+  <div class="output" id="output" style="display: none;"></div>
+
+  <script>
+    function createPerson() {
+      const firstName = document.getElementById('firstName').value;
+      const lastName = document.getElementById('lastName').value;
+      const age = document.getElementById('age').value;
+      const eyeColor = document.getElementById('eyeColor').value;
+
+      if (firstName && lastName && age) {
+        const outputDiv = document.getElementById('output');
+        outputDiv.style.display = 'block';
+        outputDiv.innerHTML = `
+          <h3>Person Details:</h3>
+          <p><strong>First Name:</strong> ${firstName}</p>
+          <p><strong>Last Name:</strong> ${lastName}</p>
+          <p><strong>Age:</strong> ${age}</p>
+          <p><strong>Eye Color:</strong> ${eyeColor || 'Not provided'}</p>
+        `;
+      } else {
+        alert('Please fill in all required fields.');
+      }
+    }
+  </script>
+</body>
+</html>

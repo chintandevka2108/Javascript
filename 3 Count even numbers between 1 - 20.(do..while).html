@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count even number</title>
+</head>
+<body>
+    
+    <h1>Reverse the number.(while).</h1>
+</body>
+</html>
+<script>
+    function reverseNumber(num) {
+    let reversed = 0;
+    while (num !== 0) {
+        let digit = num % 10;
+        reversed = reversed * 10 + digit;
+        num = Math.floor(num / 10);
+    }
+    return reversed;
+}
+
+console.log(reverseNumber(1235)); // Output: 54321
+
+</script>
