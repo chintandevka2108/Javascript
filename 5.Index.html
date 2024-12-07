@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> 5. Design a function that finds length of a string pass as argument.
+    </h1>
+</body>
+</html>
+<script>
+    function getStringLength(inputString) {
+    if (typeof inputString !== 'string') {
+        return "Invalid input. Please provide a string.";
+    }
+    return inputString.length;
+}
+
+// Example usage:
+console.log(getStringLength("Hello, World!"));
+console.log(getStringLength("012"));             
+
+</script>

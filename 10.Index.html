@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>10. Find factorial of a number using function.(Arrow Function)
+    </h1>
+</body>
+</html>
+<script>
+    const factorial = (num) => {
+    if (typeof num !== 'number' || num < 0) {
+        return "Invalid input. Please provide a non-negative number.";
+    }
+    if (num === 0 || num === 1) {
+        return 1;
+    }
+    return num * factorial(num - 1);
+};
+
+console.log(factorial(5));  
+console.log(factorial(0));  
+console.log(factorial(1));  
+console.log(factorial(-3)); 
+console.log(factorial("abc")); 
+
+</script>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>9. Find sum of three number using function.
+    </h1>
+</body>
+</html>
+<script>
+    function sumOfThreeNumbers(a, b, c) {
+    if (typeof a !== 'number' || typeof b !== 'number' || typeof c !== 'number') {
+        return "Invalid input. Please provide three numbers.";
+    }
+    return a + b + c;
+}
+
+console.log(sumOfThreeNumbers(1, 2, 3));  
+console.log(sumOfThreeNumbers(-1, 5, 10));
+console.log(sumOfThreeNumbers(0, 0, 0));  
+console.log(sumOfThreeNumbers(1, 2, 3));
+
+</script>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>6. Design a function that finds string has an "A" in starting or end.</h1>
+</body>
+</html>
+<script>
+function hasAAtStartOrEnd(inputString) {
+    if (typeof inputString !== 'string') {
+        return "Invalid input. Please provide a string.";
+    }
+    return inputString.startsWith('A') || inputString.endsWith('A');
+}
+
+console.log(hasAAtStartOrEnd("Apple"));  
+console.log(hasAAtStartOrEnd("BananaA"));
+console.log(hasAAtStartOrEnd("Banana")); 
+console.log(hasAAtStartOrEnd(123));      
+console.log(hasAAtStartOrEnd("AAA...."));       
+
+</script>
