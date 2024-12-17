@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Product Showcase</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(270deg, #6a11cb, #2575fc);
+            background-size: 400% 400%;
+            animation: backgroundAnimation 15s infinite alternate;
+            color: #333;
+            overflow-x: hidden;
+            padding-bottom: 50px;
+        }
+
+        @keyframes backgroundAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        h1 {
+            text-align: center;
+            margin: 40px 0;
+            color: #fff;
+            font-size: 40px;
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Product Showcase */
+        #maindiv {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            justify-content: center;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .product-card p {
+            margin: 10px 0;
+            font-weight: bold;
+            color: #444;
+            font-size: 18px;
+        }
+
+        .cart-btn {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cart-btn:hover {
+            background-color: #218838;
+        }
+
+        /* Cart Page Button */
+        .cart-page-btn {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .cart-page-btn a {
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #ffc107;
+            color: #000;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .cart-page-btn a:hover {
+            background-color: #e0a800;
+        }
+
+        .success-msg {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dynamic Product Showcase</h1>
+    <div id="maindiv"></div>
+
+    <!-- Cart Page Button -->
+    <div class="cart-page-btn">
+        <a href="./crt.html">Go to Cart 🛒</a>
+    </div>
+
+    <div id="successMsg" class="success-msg"></div>
+
+    <script>
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let products = [];
+
+        fetch('https://fakestoreapi.com/products')
+            .then(response => response.json())
+            .then(data => {
+                products = data;
+                displayProducts();
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+                alert("Failed to fetch product data.");
+            });
+
+        function displayProducts() {
+            const maindiv = document.getElementById("maindiv");
+            maindiv.innerHTML = ""; // Clear any existing content
+
+            products.forEach(product => {
+                const productCard = document.createElement("div");
+                productCard.className = "product-card";
+
+                const img = document.createElement("img");
+                img.src = product.image;
+                img.alt = product.title;
+
+                const title = document.createElement("p");
+                title.textContent = product.title;
+
+                const addButton = document.createElement("button");
+                addButton.textContent = "Add to Cart";
+                addButton.className = "cart-btn";
+                addButton.onclick = () => addToCart(product);
+
+                productCard.append(img, title, addButton);
+                maindiv.appendChild(productCard);
+            });
+        }
+
+        function addToCart(product) {
+            // Check if the product is already in the cart
+            const isProductInCart = cart.some(item => item.id === product.id);
+            if (!isProductInCart) {
+                cart.push(product);
+                localStorage.setItem("cart", JSON.stringify(cart));
+                document.getElementById("successMsg").textContent = `${product.title} added to cart!`;
+                setTimeout(() => document.getElementById("successMsg").textContent = '', 2000);
+            } else {
+                document.getElementById("successMsg").textContent = `This product is already in your cart.`;
+                setTimeout(() => document.getElementById("successMsg").textContent = '', 2000);
+            }
+        }
+    </script>
+</body>
+</html>

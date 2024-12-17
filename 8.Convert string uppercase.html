@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1>Q8.Write a function processArray that takes an array of strings, filters out the strings with less than 5 characters, and then converts the remaining strings to uppercase.</h1>
+</body>
+</html>
+<script>
+    function processArray(array) {
+    let filteredArray = array.filter(el => el.length >= 5);
+    
+    let upperCaseArray = filteredArray.map(el => el.toUpperCase());
+
+    return upperCaseArray;
+}
+
+let strings = ["hello", "world", "js", "programming", "AI", "chatgpt"];
+let result = processArray(strings);
+console.log(result); 
+</script>

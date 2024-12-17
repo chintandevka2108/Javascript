@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Q3.Use filter and reduce to find products of all numbers.</h1>
+</body>
+</html>
+<script>
+    let numbers = [1, 2, 3, 4, 5];
+
+let filteredNumbers = numbers.filter(el => typeof el === 'number');
+
+let product = filteredNumbers.reduce((product, el) => product * el, 1);
+
+console.log("Product of all numbers:", product); 
+
+</script>

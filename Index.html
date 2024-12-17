@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Page with let</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .product {
+      border: 1px solid #020202;
+      padding: 20px;
+      margin: 10px;
+      width: 300px;
+
+    }
+    #product-list{
+      border: 1px solid #000;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .product h2 {
+      color: #333;
+    }
+    .product p {
+      margin: 5px 0;
+  
+    }
+  </style>
+</head>
+<body>
+  <h1>Product Page</h1>
+  <div id="product-list">
+  </div>
+
+  <script>
+    // Step 1: Create a let array of product objects
+    let product = 
+    [
+      { id: 1, name: "Product A", price: 50, description: "Description of Product A",image:"https://m.media-amazon.com/images/I/61QUPtgxsYL._SX679_.jpg"},
+      { id: 2, name: "Product B", price: 75, description: "Description of Product B",image:"https://m.media-amazon.com/images/I/41bIj3-WGHL._AC_UF480,480_SR480,480_.jpg" },
+      { id: 3, name: "Product C", price: 100, description: "Description of Product C",image:"https://m.media-amazon.com/images/I/81epBowa4UL._AC_SR146,118_QL70_.jpg" },
+      { id: 4, name: "Product D", price: 150, description: "Description of Product D",image:"https://m.media-amazon.com/images/I/61QUPtgxsYL._SX679_.jpg" },
+    ];
+
+    let div = document.getElementById("product-list")
+
+    product.forEach((el,i)=>{
+
+
+      let div2= document.createElement("div")
+      div2.price="innerdiv"
+
+      let img = document.createElement("img")
+
+      img.src = el.image
+      img.style.width = "388px"
+      img.style.borderRightStyle= "black"
+
+          div2.append(img)
+          div.append(div2)
+    })
+
+  </script>
+</body>
+</html>

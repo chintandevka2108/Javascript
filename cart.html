@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        a {
+            display: inline-block;
+            margin: 20px;
+            font-size: 16px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        #cart {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .innerDiv {
+            border: 1px solid #000;
+            background-color: rgb(241, 243, 245);
+            text-align: center;
+            padding: 10px;
+        }
+        .image {
+            height: 200px;
+            width: 200px;
+            object-fit: contain;
+        }
+        #loginForm {
+            margin: 50px auto;
+            padding: 20px;
+            max-width: 400px;
+            border: 1px solid #ccc;
+            background: #f9f9f9;
+            border-radius: 10px;
+        }
+        #loginForm h2 {
+            margin-bottom: 20px;
+        }
+        #loginForm input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #loginForm button {
+            width: 100%;
+            padding: 10px;
+            background-color: rgb(11, 173, 11);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #loginForm button:hover {
+            background-color: rgb(18, 235, 18);
+        }
+    </style>
+</head>
+<body>
+    <a href="./fetch api.html">Go to Store</a>
+    <h1>Your Cart</h1>
+
+    <!-- Login Form -->
+    <div id="loginForm" style="display:none;">
+        <h2>Login</h2>
+        <input type="text" id="name" placeholder="Enter your name" required />
+        <input type="text" id="address" placeholder="Enter your address" required />
+        <input type="text" id="phone" placeholder="Enter your phone number" required />
+        <button onclick="submitLogin()">Submit</button>
+    </div>
+
+    <!-- Cart Display -->
+    <div id="cart" style="display:none;"></div>
+
+    <script>
+        let cartDiv = document.getElementById("cart");
+        let loginForm = document.getElementById("loginForm");
+
+        // Check for user details
+        let userDetails = JSON.parse(localStorage.getItem("userDetails")) || null;
+
+        // Check for cart items
+        let cartArray = JSON.parse(localStorage.getItem("cart")) || [];
+
+        // Show login form if user is not logged in
+        if (!userDetails) {
+            loginForm.style.display = "block";
+        } else {
+            displayCart();
+        }
+
+        // Submit Login and Save to LocalStorage
+        function submitLogin() {
+            let name = document.getElementById("name").value.trim();
+            let address = document.getElementById("address").value.trim();
+            let phone = document.getElementById("phone").value.trim();
+
+            if (name && address && phone) {
+                let user = { name, address, phone };
+                localStorage.setItem("userDetails", JSON.stringify(user));
+                alert("Login Successful!");
+                loginForm.style.display = "none";
+                displayCart();
+            } else {
+                alert("Please fill all fields!");
+            }
+        }
+
+        // Display Cart
+        function displayCart() {
+            cartDiv.style.display = "flex";
+
+            if (cartArray.length === 0) {
+                cartDiv.innerHTML = "<h2>Your cart is empty!</h2>";
+                return;
+            }
+
+            cartArray.forEach((el) => {
+                let innerDiv = document.createElement("div");
+                innerDiv.className = "innerDiv";
+
+                let img = document.createElement("img");
+                img.src = el.image;
+                img.className = "image";
+
+                let p = document.createElement("p");
+                p.innerText = el.category;
+
+                innerDiv.append(img, p);
+                cartDiv.append(innerDiv);
+            });
+        }
+    </script>
+</body>
+</html>
