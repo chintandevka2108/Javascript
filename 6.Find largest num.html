@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+</head>
+<body>
+ <h1>Use reduce to find the largest number in an array: </h1>
+</body>
+</html>
+<script>
+  const input = [3, 7, 2, 9, 4];
+const largest = input.reduce((max, num) => (num > max ? num : max),0);
+console.log(largest);
+
+</script>
